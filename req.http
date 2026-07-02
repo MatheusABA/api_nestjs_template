@@ -1,1 +1,30 @@
 POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+  "username": "Matheus Alexandre Barbier",
+  "displayName": "matheus_aba",
+  "email": "matheus.alencar0219931@gmail.com",
+  "password": "password123"
+}
+
+###
+GET http://localhost:3000/user?email=matheus.alencar02199@gmail.com
+
+###
+GET http://localhost:3000/user
+
+###
+GET http://localhost:3000/user/cmr3t2oz20000tvl306flf1j0
+
+###
+PATCH http://localhost:3000/user/cmr3vq3s900004bl3tv1wxl7q
+Content-Type: application/json
+
+{
+  "displayName": "matheus_aba212"
+}
+
+
+###
+DELETE http://localhost:3000/user/cmr3vq3s900004bl3tv1wxl7q

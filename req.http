@@ -14,6 +14,8 @@ GET http://localhost:3000/user?displayName=matheus_aba21
 
 ### Get all users including deleted ones
 GET http://localhost:3000/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbXIzdDJvejIwMDAwdHZsMzA2ZmxmMWowIiwiZGlzcGxheU5hbWUiOiJtYXRoZXVzX2FiYTIxIiwicm9sZSI6IlVTRVIiLCJlbWFpbCI6Im1hdGhldXMuYWxlbmNhcjAyMTk5QGdtYWlsLmNvbSIsImlhdCI6MTc4MzAyNDQ1MiwiZXhwIjoxNzgzNjI5MjUyfQ.ucX4OORAJ4XBseAuqNhXAvg_D4MuS6BH2TQenmPDQuE
+
 
 ### Get user by db id
 GET http://localhost:3000/user/cmr3t2oz20000tvl306flf1j0

@@ -13,7 +13,10 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { JwtAuthGuard } from '../../common/guard/jwt-auth.guard';
+import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
+import { Roles } from '../../common/decorators/roles.decorator';
+import { Role } from '@prisma/client';
+import { RolesGuard } from '../../common/guards/roles.guard';
 
 @Controller('user')
 export class UserController {
@@ -31,6 +34,8 @@ export class UserController {
   }
 
   @Get()
+  @Roles(Role.ADMIN)
+  @UseGuards(JwtAuthGuard, RolesGuard)
   async findAll(
     @Query('email') email?: string,
     @Query('displayName') displayName?: string,

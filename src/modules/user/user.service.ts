@@ -107,10 +107,10 @@ export class UserService {
     return user;
   }
 
-  async findByUsername(username: string) {
+  async findByDisplayName(displayName: string) {
     const user = await this.prismaService.user.findFirst({
       where: {
-        username,
+        displayName,
         deletedAt: null,
       },
     });

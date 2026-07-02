@@ -1,3 +1,4 @@
+### Create user
 POST http://localhost:3000/user
 Content-Type: application/json
 
@@ -8,16 +9,16 @@ Content-Type: application/json
   "password": "password123"
 }
 
-###
-GET http://localhost:3000/user?email=matheus.alencar02199@gmail.com
+### Get user by displayName / email
+GET http://localhost:3000/user?displayName=matheus_aba21
 
-###
+### Get all users including deleted ones
 GET http://localhost:3000/user
 
-###
+### Get user by db id
 GET http://localhost:3000/user/cmr3t2oz20000tvl306flf1j0
 
-###
+### Update user passing id
 PATCH http://localhost:3000/user/cmr3vq3s900004bl3tv1wxl7q
 Content-Type: application/json
 
@@ -26,5 +27,20 @@ Content-Type: application/json
 }
 
 
-###
+### Soft delete user by id
 DELETE http://localhost:3000/user/cmr3vq3s900004bl3tv1wxl7q
+
+
+### Login 
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "matheus.alencar02199@gmail.com",
+  "password": "Matheus2106"
+}
+
+
+### Get current user data
+GET http://localhost:3000/user/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbXIzdDJvejIwMDAwdHZsMzA2ZmxmMWowIiwiZGlzcGxheU5hbWUiOiJtYXRoZXVzX2FiYTIxIiwiZW1haWwiOiJtYXRoZXVzLmFsZW5jYXIwMjE5OUBnbWFpbC5jb20iLCJpYXQiOjE3ODMwMjI1NDksImV4cCI6MTc4MzYyNzM0OX0.i2CuhsnggucZUq3HxDBZbR-9fnblRI2QFX_ipxX7X3E

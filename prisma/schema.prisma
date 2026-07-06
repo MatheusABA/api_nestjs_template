@@ -26,4 +26,25 @@ model User {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   deletedAt   DateTime?
+
+  // Relations
+  refreshTokens RefreshToken[]
+}
+
+model RefreshToken {
+	id         String    @id @default(cuid())
+	userId     String
+	tokenHash  String    @unique
+	family     String
+	revoked    Boolean   @default(false)
+	expiresAt  DateTime
+	createdAt  DateTime  @default(now())
+	userAgent  String?
+	ip         String?
+
+	user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+	// Index
+	@@index([userId])
+	@@index([family])
 }

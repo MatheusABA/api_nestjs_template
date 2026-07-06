@@ -8,7 +8,7 @@ import {
   Delete,
   Query,
   UseGuards,
-  Request,
+  Req,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -17,6 +17,7 @@ import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { Role } from '@prisma/client';
 import { RolesGuard } from '../../common/guards/roles.guard';
+import type { Request } from 'express';
 
 @Controller('user')
 export class UserController {
@@ -29,7 +30,7 @@ export class UserController {
 
   @Get('me')
   @UseGuards(JwtAuthGuard)
-  getProfile(@Request() req) {
+  getProfile(@Req() req: Request) {
     return req.user;
   }
 
